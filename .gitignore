@@ -1,0 +1,153 @@
+# ============================================================================
+# FACEBOOK APPROVAL SYSTEM - GIT IGNORE
+# ============================================================================
+# This file tells Git which files to NEVER commit to version control.
+# Critical for security - prevents exposing sensitive credentials.
+#
+# Last Updated: 2025-11-01
+# ============================================================================
+
+# ============================================================================
+# CRITICAL: Never Commit These Files (Contains Secrets)
+# ============================================================================
+
+# WordPress configuration (contains database passwords and all secrets)
+wp-config.php
+
+# Old insecure config (if it exists)
+config.php
+
+# Data files (contains user emails and personal information)
+submissions.json
+submissions-*.json
+*.backup
+
+# Log files (contains IP addresses and activity data)
+*.log
+webhook.log
+activity.log
+security.log
+audit.log
+
+# Environment files
+.env
+.env.local
+.env.production
+
+# Backup files
+*.bak
+*.old
+*.tmp
+
+# ============================================================================
+# SAFE TO COMMIT: Application Code (No Secrets)
+# ============================================================================
+
+# These files are SAFE because they read from wp-config.php:
+# ✅ config-SECURE.php (the new secure config)
+# ✅ webhook-receiver.php
+# ✅ queue.php
+# ✅ queue-troues.php
+# ✅ simple-auth.php
+# ✅ README.md
+# ✅ .claude/
+
+# ============================================================================
+# System Files
+# ============================================================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.directory
+.Trash-*
+
+# ============================================================================
+# IDE / Editor Files
+# ============================================================================
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# PHPStorm / IntelliJ
+.idea/
+*.iml
+*.iws
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+
+# ============================================================================
+# Temporary Files
+# ============================================================================
+
+# PHP
+*.cache
+vendor/
+
+# Composer
+composer.phar
+composer.lock
+
+# Node (if using npm for frontend assets)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# ============================================================================
+# DEPLOYMENT NOTES
+# ============================================================================
+
+# Before deploying to production:
+# 1. ✅ Verify wp-config.php is NOT in this repository
+# 2. ✅ Verify all FB_* constants are in your server's wp-config.php
+# 3. ✅ Rename config-SECURE.php to config.php on the server
+# 4. ✅ Set FB_DEBUG_MODE = false in wp-config.php
+# 5. ✅ Test that submissions.json is not directly accessible via URL
+
+# ============================================================================
+# REFERENCE: Files That SHOULD Be Committed
+# ============================================================================
+
+# Application code (safe - no secrets):
+# !config-SECURE.php
+# !webhook-receiver.php
+# !queue.php
+# !queue-troues.php
+# !simple-auth.php
+# !cropped-logo.png
+# !assets/
+# !.claude/
+# !README.md
+# !.gitignore
+# !config.template.php (if you create one)
+.claude
